@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const App = () => <h1>My React andluzja TypeScript App!</h1>;
+
+const App = () => (
+  <h1>My React andluzja TypeScript App! {new Date().toLocaleDateString()}</h1>
+);
 
 ReactDOM.render(
   <React.StrictMode>
