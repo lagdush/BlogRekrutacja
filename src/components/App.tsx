@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { PageLayout } from './PageLayout/PageLayout';
+import { WelcomePage } from './WelcomePage/WelcomePage';
 
 const App = () => {
-  return <PageLayout />;
+  return <WelcomePage />;
 };
 
 export default App;

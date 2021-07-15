@@ -3,6 +3,7 @@ import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ESLintPlugin from "eslint-webpack-plugin";
+import Dotenv from 'dotenv-webpack';
 
 const config = {
   mode: "development",
@@ -40,6 +41,10 @@ const config = {
           loader: 'url-loader',
         },
       },
+            {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader'
+      },
     ],
   },
   resolve: {
@@ -56,6 +61,7 @@ const config = {
     new ESLintPlugin({
       extensions: ["js", "jsx", "ts", "tsx"],
     }),
+    new Dotenv()
   ],
   devtool: "inline-source-map",
   devServer: {
