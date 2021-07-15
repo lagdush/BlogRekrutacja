@@ -34,7 +34,12 @@ const config = {
         test: /\.svg$/,
         use: ['@svgr/webpack', 'svg-url-loader'],
       },
-
+      {
+        test: /\.(woff|woff2|otf)$/,
+        use: {
+          loader: 'url-loader',
+        },
+      },
     ],
   },
   resolve: {
