@@ -1,7 +1,21 @@
-.layout {
+.blog {
+   margin: 6rem;
    display: grid;
    grid-template-rows: auto 1fr auto;
-   justify-items: center;
    gap: 3rem;
    min-height: 100vh;
+   margin-top: 5vh;
+}
+
+.blog__header{
+   text-align: center;
+   font-family: Beattingvile;
+   font-size: clamp(3rem, 6vw, 8rem);
+   padding: 5vh;
+}
+
+.blog__section{
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+   gap: 3rem;
 }

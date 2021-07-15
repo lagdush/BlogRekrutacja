@@ -1,6 +1,8 @@
 import React from 'react';
 import style from './welcomePage.module.css';
-import {Button} from '../Button/Button'
+import { Button } from '../Button/Button';
+import { BlogLink } from '../Link/Link';
+
 export const WelcomePage = () => {
   return (
     <div className={style.welcomePage}>
@@ -12,7 +14,10 @@ export const WelcomePage = () => {
           aspernatur temporibus minus culpa autem exercitationem officiis
           incidunt ratione ipsam cumque unde.
         </p>
-        <Button>Blog</Button>
+
+        <BlogLink to="/blog">
+          <Button>Blog</Button>
+        </BlogLink>
       </div>
     </div>
   );

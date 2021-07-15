@@ -7,6 +7,7 @@
    border-radius: 5%;
    transition: .3s ease-in-out;
    font-size: 1rem;
+   cursor: pointer;
 }
 .btn--primary{
    background-color: #FCB742;
