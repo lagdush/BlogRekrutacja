@@ -1,0 +1,33 @@
+.btn{
+   padding:0.5rem 3rem;
+   border: none;
+   font-family: inherit;
+   color:inherit;
+   text-align: center;
+   border-radius: 5%;
+   transition: .3s ease-in-out;
+   font-size: 1rem;
+}
+.btn--primary{
+   background-color: #FCB742;
+}
+
+.btn--secondary{
+   background-color: #F7997D;
+}
+
+.btn--special{
+   background-color: #eb7ad4;
+}
+
+.btn--primary:hover {
+background-color: #f6a00a;
+}
+
+.btn--secondary:hover {
+   background-color: #f6744d;
+}
+
+.btn--special:hover {
+   background-color: #ee99dd;
+}
