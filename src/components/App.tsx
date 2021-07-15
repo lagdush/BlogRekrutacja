@@ -1,13 +1,30 @@
-import React from 'react';
-import style from './app.module.css';
-import { ReactComponent as Test } from '../assets/Pet, Animal _ dog, training, love, care, woman, home, girl, happy, leisureTEST.svg';
+import React, { useState } from 'react';
 
-const App = () => {
+const STATUS = {
+  HOVERED: 'hovered',
+  NORMAL: 'normal',
+};
+
+const App = ({ page, children }: any) => {
+  const [status, setStatus] = useState(STATUS.NORMAL);
+
+  const onMouseEnter = () => {
+    setStatus(STATUS.HOVERED);
+  };
+
+  const onMouseLeave = () => {
+    setStatus(STATUS.NORMAL);
+  };
+
   return (
-    <>
-      <div className={style.test}>Hello Worlda</div>
-      <Test />
-    </>
+    <a
+      className={status}
+      href={page || '#'}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      {children}
+    </a>
   );
 };
 
