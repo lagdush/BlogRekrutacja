@@ -1,23 +1,17 @@
+/**
+ * @jest-environment jsdom
+ */
+/* eslint-env jest */
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render, screen } from '@testing-library/react';
+
 import App from './components/App';
 
-test('Link changes the class when hovered', () => {
-  const component = renderer.create(
-    <App page="http://www.facebook.com">Facebook</App>
-  );
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+const text = 'Hello World';
+describe('Label', () => {
+  it('renders correctly', () => {
+    render(<App />);
 
-  // manually trigger the callback
-  tree.props.onMouseEnter();
-  // re-rendering
-  tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-
-  // manually trigger the callback
-  tree.props.onMouseLeave();
-  // re-rendering
-  tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+    expect(screen.getByText(text)).toBeInTheDocument();
+  });
 });
