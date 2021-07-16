@@ -17,8 +17,10 @@
    background-color: #F7997D;
 }
 
-.btn--special{
-   background-color: #eb7ad4;
+.btn--special--ico{
+   background-color: transparent;
+   padding:0;
+   font-size: 1.5rem;
 }
 
 .btn--primary:hover {

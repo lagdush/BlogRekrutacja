@@ -1,11 +1,11 @@
 .article{
    display: flex;
    flex-direction: column;
-   justify-content: space-evenly;
+   justify-content: space-between;
    align-items: center;
-   border: 2px solid red;
-   width: auto;
-   height: 50vh;
+   gap: 3rem;
+   min-width: auto;
+   min-height: 50vh;
    padding: 2rem 3rem;
    color: inherit;
 }
@@ -17,7 +17,7 @@
 }
 
 .article__header {
-    text-align: center;
+   text-align: center;
    font-size: 1.2rem;
    letter-spacing: 2px;
 }

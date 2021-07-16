@@ -1,0 +1,27 @@
+.comments {
+   display: flex;
+   flex-direction: column;
+   align-items: start;
+   background-color: #e4dce0;
+   margin: 2rem auto;
+   padding: 2rem;
+   border-radius: 15px;
+   min-height: 10vh;
+   max-width: 75vw;
+}
+
+.comments__email {
+   color: #FCB742;
+   font-weight: 700;
+   padding-top: 1rem;
+}
+
+.comments__text {
+   text-align: justify;
+}
+
+@media (hover: none) {
+   .comments {
+      max-width: 90vw;
+   }
+}

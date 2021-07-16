@@ -1,0 +1,31 @@
+.article{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   gap: 3rem;
+   align-items: center;
+   margin-top: 5rem;
+   min-height: 60vh;
+   max-height: fit-content;
+   padding: 2rem;
+   text-align: center;
+}
+
+.article__header{
+   font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.article__text{
+   font-size: clamp(.8rem, 2vw, 1.1rem);
+}
+
+.article__commentsSectionTitle {
+   font-weight: 100;
+   border-top: thin solid gray;
+   padding-top: .5rem;
+}
+
+.article__header::first-letter,
+.article__text::first-letter {
+   text-transform: uppercase;
+}

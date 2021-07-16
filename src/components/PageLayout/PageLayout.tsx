@@ -40,7 +40,7 @@ export const PageLayout: React.FC = () => {
       <section className={style.blog__section}>
         {blogPosts.map((post) => {
           return (
-            <BlogArticle key={post.id} title={post.title} body={post.body} />
+            <BlogArticle key={post.id} title={post.title} body={post.body} id={post.id}/>
           );
         })}
       </section>
