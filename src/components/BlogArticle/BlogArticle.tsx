@@ -4,7 +4,6 @@ import { BlogLink } from '../Link/Link';
 import style from './blogArticle.module.css';
 
 // TODO: catch post id and call to comment
-// TODO: create comment components
 // TODO: Add redux
 // TODO: Move all logic to redux
 // TODO: create usefetch hook

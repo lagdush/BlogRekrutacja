@@ -3,7 +3,7 @@ import style from './button.module.css';
 
 type ButtonProps = {
   children: ReactText | ReactElement;
-  styleClassName?: 'btn--primary' | 'btn--secondary' | 'btn--special--ico';
+  styleClassName?: 'btn--primary' | 'btn--secondary';
 };
 export const Button: React.FC<ButtonProps> = ({
   children,

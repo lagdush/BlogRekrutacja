@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BlogLink } from '../Link/Link';
 import { BlogArticle } from '../BlogArticle/BlogArticle';
 import style from './pageLayout.module.css';
+import { Footer } from '../Footer/Footer';
 
 // type PageLayoutProps = {};
 type FetchedPosts = {
@@ -40,11 +41,16 @@ export const PageLayout: React.FC = () => {
       <section className={style.blog__section}>
         {blogPosts.map((post) => {
           return (
-            <BlogArticle key={post.id} title={post.title} body={post.body} id={post.id}/>
+            <BlogArticle
+              key={post.id}
+              title={post.title}
+              body={post.body}
+              id={post.id}
+            />
           );
         })}
       </section>
-      <footer>STOPKA</footer>
+      <Footer />
     </div>
   );
 };

@@ -17,20 +17,10 @@
    background-color: #F7997D;
 }
 
-.btn--special--ico{
-   background-color: transparent;
-   padding:0;
-   font-size: 1.5rem;
-}
-
 .btn--primary:hover {
 background-color: #f6a00a;
 }
 
 .btn--secondary:hover {
    background-color: #f6744d;
-}
-
-.btn--special:hover {
-   background-color: #ee99dd;
 }

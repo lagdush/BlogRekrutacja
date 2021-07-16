@@ -14,10 +14,17 @@
    color: #FCB742;
    font-weight: 700;
    padding-top: 1rem;
+   font-size: clamp(.6rem, 2vw, 1rem);
 }
 
 .comments__text {
    text-align: justify;
+   font-size: clamp(.8rem, 2vw, 1.1rem);
+}
+
+.comments__ico{
+   font-size: 1.5rem;
+   align-self: flex-end;
 }
 
 @media (hover: none) {

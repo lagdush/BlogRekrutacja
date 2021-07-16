@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router, Redirect } from 'react-router-dom';
 
 import { WelcomePage } from './WelcomePage/WelcomePage';
 import { PageLayout } from './PageLayout/PageLayout';
 import { BlogFullArticle } from './BlogFullArticle/BlogFullArticle';
+import { ErrorPage } from './404Page/ErrorPage';
 
 const App = () => {
   return (
@@ -18,6 +19,10 @@ const App = () => {
         <Route path="/blog/:id">
           <BlogFullArticle />
         </Route>
+        <Route path="/404">
+          <ErrorPage />
+        </Route>
+        <Redirect from="*" to="/404" />
       </Switch>
     </Router>
   );

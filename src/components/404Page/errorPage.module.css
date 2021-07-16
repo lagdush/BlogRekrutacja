@@ -1,0 +1,36 @@
+.errorPage{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   gap: 5rem;
+   align-items: center;
+   min-height: 70vh;
+   margin: 6rem 3rem;
+   text-align: center;
+}
+
+.errorPage__header{
+   font-size: clamp(4rem, 15vw, 8rem);
+}
+.errorPage--gradientText{
+   min-height:25vh;
+   background: linear-gradient(45deg, #FCB742, #F7997D);
+   background-clip: text;
+   -webkit-background-clip: text;
+   -moz-background-clip: text;
+   -moz-text-fill-color: transparent;
+   -webkit-text-fill-color: transparent;
+   transform: skew(-15deg);
+   display: flex;
+   place-items: center;
+}
+
+.errorPage__errorName{
+   font-size: clamp(1.2rem, 9vw, 3rem);
+   line-height: 135%;
+}
+
+.errorPage__errorMessage{
+   font-size: clamp(.6rem, 5vw, 1.5rem);
+   line-height: 155%;
+}
