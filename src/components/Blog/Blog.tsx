@@ -1,36 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDataFromApi } from '../../store/actionsToApi';
 import { BlogLink } from '../Link/Link';
 import { BlogArticle } from '../BlogArticle/BlogArticle';
 import style from './blog.module.css';
 import { Footer } from '../Footer/Footer';
 import { Loader } from '../Loader/Loader';
 
-// type PageLayoutProps = {};
+
 type FetchedPosts = {
   userId: number;
   id: number;
   title: string;
   body: string;
 };
-export const PageLayout: React.FC = () => {
-  const [blogPosts, setBlogPosts] = useState<FetchedPosts[]>();
-  const [load, setLoad] = useState(false);
-  const fetchPosts = async () => {
-    setLoad(true);
-    const rawPosts = await fetch(process.env.REACT_APP_API_KEY + 'posts');
-    const post = await rawPosts.json();
-    setBlogPosts(post);
-    setLoad(false);
+type ReducerType = {
+  articles: {
+    fetchedArticles: FetchedPosts[];
+    loading: false;
+    error: [];
   };
-  useEffect(() => {
-    fetchPosts();
-  }, []);
+};
+export const PageLayout: React.FC = () => {
 
-  if (!blogPosts) {
+  const {fetchedArticles, loading} = useSelector((state: ReducerType) => state.articles);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getDataFromApi());
+  }, [dispatch]);
+
+  if (!fetchedArticles) {
     return <Loader />;
   }
 
-  return load ? (
+  return loading ? (
     <Loader />
   ) : (
     <div className={style.blog}>
@@ -40,7 +43,7 @@ export const PageLayout: React.FC = () => {
         </BlogLink>
       </header>
       <section className={style.blog__section}>
-        {blogPosts.map((post) => {
+        {fetchedArticles.map((post) => {
           return (
             <BlogArticle
               key={post.id}
