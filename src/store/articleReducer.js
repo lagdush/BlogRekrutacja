@@ -5,7 +5,7 @@ const articleSlice = createSlice({
   initialState: {
     fetchedArticles: [],
     loading: false,
-    error: [],
+    error: '',
   },
   reducers: {
     getAllArticles: (data, action) => {
@@ -18,7 +18,7 @@ const articleSlice = createSlice({
       data.loading = false;
     },
     catchErrors: (data, action) => {
-      data.error.push(action.payload);
+      data.error = action.payload;
     },
   },
 });

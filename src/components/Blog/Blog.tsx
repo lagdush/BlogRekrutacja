@@ -6,7 +6,7 @@ import { BlogArticle } from '../BlogArticle/BlogArticle';
 import style from './blog.module.css';
 import { Footer } from '../Footer/Footer';
 import { Loader } from '../Loader/Loader';
-
+import { ErrorPage } from '../404Page/ErrorPage';
 
 type FetchedPosts = {
   userId: number;
@@ -18,12 +18,13 @@ type ReducerType = {
   articles: {
     fetchedArticles: FetchedPosts[];
     loading: false;
-    error: [];
+    error: string;
   };
 };
 export const PageLayout: React.FC = () => {
-
-  const {fetchedArticles, loading} = useSelector((state: ReducerType) => state.articles);
+  const { fetchedArticles, loading, error } = useSelector(
+    (state: ReducerType) => state.articles
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getDataFromApi());
@@ -31,6 +32,10 @@ export const PageLayout: React.FC = () => {
 
   if (!fetchedArticles) {
     return <Loader />;
+  }
+
+  if (error) {
+    return <ErrorPage error='Somethig went wrong.'/>;
   }
 
   return loading ? (

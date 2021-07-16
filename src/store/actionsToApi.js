@@ -16,6 +16,7 @@ export const getDataFromApi = () => {
       dispatch({ type: hideLoader.type });
     } catch (error) {
       dispatch({ type: catchErrors.type, payload: error });
+      console.log(error);
     }
   };
 };

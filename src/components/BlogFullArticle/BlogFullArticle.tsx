@@ -6,6 +6,11 @@ import { BlogLink } from '../Link/Link';
 import { Loader } from '../Loader/Loader';
 import style from './blogFullArticle.module.css';
 
+// TODO: create action to filter arr REDUX
+// TODO: create call to api for comments REDUX
+// TODO: delete all unnecessary comments console.logs
+// TODO: ADD tests!!!
+
 type ParamsType = {
   id?: string | undefined;
 };
