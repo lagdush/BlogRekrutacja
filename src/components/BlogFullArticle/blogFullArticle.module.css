@@ -29,3 +29,8 @@
 .article__text::first-letter {
    text-transform: uppercase;
 }
+
+.article__buttons{
+   display: flex;
+   gap: 2rem;
+}

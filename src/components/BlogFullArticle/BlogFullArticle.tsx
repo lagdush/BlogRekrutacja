@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Button } from '../Button/Button';
 import { Comments } from '../Comments/Comments';
 import { BlogLink } from '../Link/Link';
+import { Loader } from '../Loader/Loader';
 import style from './blogFullArticle.module.css';
 
 type ParamsType = {
@@ -50,15 +51,19 @@ export const BlogFullArticle = () => {
     fetchComments();
   }, []);
   if (!blogPost || !comments) {
-    return <h3>LOL</h3>;
+    return <Loader />;
   }
   return (
     <article className={style.article}>
       <h1 className={style.article__header}>{blogPost.title}</h1>
       <p className={style.article__text}>{blogPost.body}</p>
-      <BlogLink to="/blog">
-        <Button>Return to all articles</Button>
-      </BlogLink>
+      <div className={style.article__buttons}>
+        <BlogLink to="/blog">
+          <Button>Return to all articles</Button>
+        </BlogLink>
+        <Button styleClassName="btn--secondary">Add to favourite</Button>
+      </div>
+
       <div>
         <h3
           className={`${style.article__text} ${style.article__commentsSectionTitle}`}

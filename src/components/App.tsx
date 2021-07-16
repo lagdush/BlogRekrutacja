@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Switch, Route, BrowserRouter as Router, Redirect } from 'react-router-dom';
 
 import { WelcomePage } from './WelcomePage/WelcomePage';
-import { PageLayout } from './PageLayout/PageLayout';
+import { PageLayout } from './Blog/Blog';
 import { BlogFullArticle } from './BlogFullArticle/BlogFullArticle';
 import { ErrorPage } from './404Page/ErrorPage';
 

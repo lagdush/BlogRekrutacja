@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { BlogLink } from '../Link/Link';
 import { BlogArticle } from '../BlogArticle/BlogArticle';
-import style from './pageLayout.module.css';
+import style from './blog.module.css';
 import { Footer } from '../Footer/Footer';
+import { Loader } from '../Loader/Loader';
 
 // type PageLayoutProps = {};
 type FetchedPosts = {
@@ -26,11 +27,11 @@ export const PageLayout: React.FC = () => {
   }, []);
 
   if (!blogPosts) {
-    return <p>ups...</p>;
+    return <Loader />;
   }
 
   return load ? (
-    <p>loading...</p>
+    <Loader />
   ) : (
     <div className={style.blog}>
       <header>
