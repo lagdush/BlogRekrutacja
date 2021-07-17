@@ -3,9 +3,6 @@ import { Button } from '../Button/Button';
 import { BlogLink } from '../Link/Link';
 import style from './blogArticle.module.css';
 
-// TODO: Think about pagination
-// TODO: add tests
-
 type BlogArticleProps = {
   title: string;
   body: string;

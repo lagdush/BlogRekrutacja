@@ -1,4 +1,4 @@
-export const loadState = (key = 'posts')=>{
+export const loadState: (key?: string) => undefined | string = (key = 'posts')=>{
    try {
       const stateFromLocalStorage = localStorage.getItem(key);
       if(stateFromLocalStorage === null){
@@ -10,7 +10,7 @@ export const loadState = (key = 'posts')=>{
    }
 };
 
-export const saveToLocalStorage = (key = 'posts' ,state:any) => {
+export const saveToLocalStorage: (key: string | undefined, state: unknown) => void = (key = 'posts' ,state:unknown) => {
   try {
     localStorage.setItem(key, JSON.stringify(state));
   } catch (e) {

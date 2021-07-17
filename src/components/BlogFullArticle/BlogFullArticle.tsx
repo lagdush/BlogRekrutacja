@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getCommentsFromApi } from '../../store/commentsActionsToApi';
-import { FetchedPosts, ParamsType, ReducerType } from '../../types/types';
+import { ParamsType, ReducerType } from '../../types/types';
 import { ErrorPage } from '../404Page/ErrorPage';
 import { Button } from '../Button/Button';
 import { Comments } from '../Comments/Comments';
@@ -10,10 +10,8 @@ import { BlogLink } from '../Link/Link';
 import { Loader } from '../Loader/Loader';
 import style from './blogFullArticle.module.css';
 
-// TODO: delete all unnecessary comments console.logs
-// TODO: ADD tests!!!
 
-export const BlogFullArticle = () => {
+export const BlogFullArticle: React.FC = () => {
   const { id } = useParams<ParamsType>();
   const dispatch = useDispatch();
 

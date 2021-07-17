@@ -3,7 +3,7 @@ import style from './welcomePage.module.css';
 import { Button } from '../Button/Button';
 import { BlogLink } from '../Link/Link';
 
-export const WelcomePage = () => {
+export const WelcomePage: React.FC = () => {
   return (
     <div className={style.welcomePage}>
       <h1 className={style.welcomePage__Logo}>Best Blog</h1>
