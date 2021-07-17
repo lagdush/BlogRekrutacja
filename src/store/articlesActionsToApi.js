@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import { client } from '../helpers/client';
 import {
   getAllArticles,
   showLoader,
@@ -6,17 +7,16 @@ import {
   catchErrors,
 } from './articleReducer';
 
-export const getDataFromApi = () => {
+export const getArticlesFromApi = () => {
   return async function (dispatch) {
     try {
-      const rawData = await fetch(process.env.REACT_APP_API_KEY + 'posts');
       dispatch({ type: showLoader.type });
-      const data = await rawData.json();
+      const data = await client.get('posts');
       dispatch({ type: getAllArticles.type, payload: data });
+      localStorage.setItem('posts', JSON.stringify(data));
       dispatch({ type: hideLoader.type });
     } catch (error) {
       dispatch({ type: catchErrors.type, payload: error });
-      console.log(error);
     }
   };
 };

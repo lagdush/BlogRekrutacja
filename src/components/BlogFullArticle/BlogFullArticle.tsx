@@ -1,67 +1,48 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { getCommentsFromApi } from '../../store/commentsActionsToApi';
+import { FetchedPosts, ParamsType, ReducerType } from '../../types/types';
+import { ErrorPage } from '../404Page/ErrorPage';
 import { Button } from '../Button/Button';
 import { Comments } from '../Comments/Comments';
 import { BlogLink } from '../Link/Link';
 import { Loader } from '../Loader/Loader';
 import style from './blogFullArticle.module.css';
 
-// TODO: create action to filter arr REDUX
-// TODO: create call to api for comments REDUX
 // TODO: delete all unnecessary comments console.logs
 // TODO: ADD tests!!!
 
-type ParamsType = {
-  id?: string | undefined;
-};
-
-type Article = {
-  body: string;
-  id: number;
-  title: string;
-  userId: number;
-};
-
-type Comments = {
-  body: string;
-  email: string;
-  id: number;
-  name: string;
-  postId: number;
-};
-
 export const BlogFullArticle = () => {
   const { id } = useParams<ParamsType>();
-  const [blogPost, setBlogPost] = useState<Article>();
-  const [comments, setComments] = useState<Comments[]>();
+  const dispatch = useDispatch();
 
-  const fetchArticle = async () => {
-    const rawPosts = await fetch(process.env.REACT_APP_API_KEY + `posts/${id}`);
-    const post = await rawPosts.json();
-    setBlogPost(post);
-  };
+  const { fetchedComments, loading, error } = useSelector(
+    (state: ReducerType) => state.comments
+  );
 
-  const fetchComments = async () => {
-    const rawPosts = await fetch(
-      process.env.REACT_APP_API_KEY + `posts/${id}/comments`
-    );
-    const comments = await rawPosts.json();
-    setComments(comments);
-  };
+  const { fetchedArticles } = useSelector(
+    (state: ReducerType) => state.articles
+  );
 
   useEffect(() => {
-    fetchArticle();
-  }, []);
-  useEffect(() => {
-    fetchComments();
-  }, []);
-  if (!blogPost || !comments) {
+    dispatch(getCommentsFromApi(`posts/${id}/comments`));
+  }, [dispatch, id]);
+
+  const [blogArticle] = fetchedArticles.filter(
+    (article) => article.id === Number(id)
+  );
+
+  if (!fetchedComments || loading) {
     return <Loader />;
+  }
+  if (error) {
+    return <ErrorPage error="Somethig went wrong." />;
   }
   return (
     <article className={style.article}>
-      <h1 className={style.article__header}>{blogPost.title}</h1>
-      <p className={style.article__text}>{blogPost.body}</p>
+      <h1 className={style.article__header}>{blogArticle.title}</h1>
+      <p className={style.article__text}>{blogArticle.body}</p>
       <div className={style.article__buttons}>
         <BlogLink to="/blog">
           <Button>Return to all articles</Button>
@@ -75,7 +56,7 @@ export const BlogFullArticle = () => {
         >
           Comments
         </h3>
-        {comments.map((comment) => {
+        {fetchedComments.map((comment) => {
           return (
             <Comments
               key={comment.id}

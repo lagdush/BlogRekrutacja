@@ -5,6 +5,11 @@ import store from './store/configureStore';
 import App from './components/App';
 
 import './index.css';
+import { saveToLocalStorage } from './helpers/localStorage';
+
+store.subscribe(() => {
+  saveToLocalStorage('posts', store.getState());
+});
 
 ReactDOM.render(
   <React.StrictMode>

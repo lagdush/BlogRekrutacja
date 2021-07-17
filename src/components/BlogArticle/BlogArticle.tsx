@@ -10,7 +10,6 @@ type BlogArticleProps = {
   title: string;
   body: string;
   id: number;
-  key?: string | number;
 };
 
 export const BlogArticle: React.FC<BlogArticleProps> = ({
