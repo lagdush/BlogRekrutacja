@@ -41,7 +41,6 @@ export const BlogFullArticle: React.FC = () => {
   const isFavourite = favouriteArticles.some((el) => {
     return el.id === Number(id);
   });
-  console.log(isFavourite);
 
   const addToFavourite = () => {
     dispatch({ type: addArticleToFavourite.type, payload: blogArticle });
@@ -92,6 +91,7 @@ export const BlogFullArticle: React.FC = () => {
           return (
             <Comments
               key={comment.id}
+              id={comment.id}
               body={comment.body}
               email={comment.email}
             />

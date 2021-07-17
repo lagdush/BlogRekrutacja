@@ -23,6 +23,10 @@ const favouriteSlice = createSlice({
       }
       data.favouriteComments.push(action.payload);
     },
+    removeCommentFromFavourite: (data, action) => {
+      const index = data.favouriteComments.indexOf(action.payload);
+      data.favouriteComments.splice(index, 1);
+    },
   },
 });
 
@@ -30,5 +34,6 @@ export const {
   addArticleToFavourite,
   addCommentToFavourite,
   removeArticleFromFavourite,
+  removeCommentFromFavourite,
 } = favouriteSlice.actions;
 export default favouriteSlice.reducer;

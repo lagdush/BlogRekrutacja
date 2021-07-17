@@ -4,11 +4,10 @@ import { ReducerType } from '../../types/types';
 import { BlogArticle } from '../BlogArticle/BlogArticle';
 import { Button } from '../Button/Button';
 import { BlogLink } from '../Link/Link';
-import { Loader } from '../Loader/Loader';
 import style from './favourite.module.css';
 
 export const Favourite: React.FC = () => {
-  const { favouriteArticles, favouriteComments } = useSelector(
+  const { favouriteArticles } = useSelector(
     (state: ReducerType) => state.favourite
   );
 
