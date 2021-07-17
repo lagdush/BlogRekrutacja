@@ -11,6 +11,7 @@ import { BlogFullArticle } from './BlogFullArticle/BlogFullArticle';
 import { ErrorPage } from './404Page/ErrorPage';
 import { ArticleList } from './ArticleList/ArticleList';
 import { BlogTemplate } from './Blog/BlogTemplate';
+import { Favourite } from './Favourite/Favourite';
 
 const App: React.FC = () => {
   return (
@@ -25,6 +26,9 @@ const App: React.FC = () => {
           </Route>
           <Route path="/blog/:id">
             <BlogFullArticle />
+          </Route>
+          <Route path="/favourite">
+            <Favourite />
           </Route>
         </BlogTemplate>
         <Route path="/404">

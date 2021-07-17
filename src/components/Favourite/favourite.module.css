@@ -1,0 +1,12 @@
+.favourite__section {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+   gap: 5rem;
+}
+
+.favourite__emptyList{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 3rem;
+}

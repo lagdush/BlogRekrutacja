@@ -10,10 +10,11 @@ type BlogTemplateProps = {
 export const BlogTemplate: React.FC<BlogTemplateProps> = ({ children }) => {
   return (
     <div className={style.blog}>
-      <header>
+      <header className={style.blog__header}>
         <BlogLink to="/">
-          <h1 className={style.blog__header}>Best Blog</h1>
+          <h1 className={style.header__logo}>Best Blog</h1>
         </BlogLink>
+        <BlogLink to="/favourite">Go to favourite</BlogLink>
       </header>
       {children}
       <Footer />

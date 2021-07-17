@@ -29,4 +29,8 @@ export type ReducerType = {
     loading: false;
     error: string;
   };
+  favourite: {
+    favouriteArticles: FetchedPosts[];
+    favouriteComments: Comments[];
+  }
 };
