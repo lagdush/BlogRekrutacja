@@ -8,7 +8,7 @@ import './index.css';
 import { saveToLocalStorage } from './helpers/localStorage';
 
 store.subscribe(() => {
-  saveToLocalStorage('posts', store.getState());
+  saveToLocalStorage(store.getState());
 });
 
 ReactDOM.render(

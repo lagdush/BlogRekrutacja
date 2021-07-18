@@ -17,20 +17,21 @@ const App: React.FC = () => {
     <Router>
       <Switch>
         <BlogTemplate>
-          <Route path="/" exact>
-            <ArticleList />
-          </Route>
-          <Route path="/blog/:id">
-            <BlogFullArticle />
-          </Route>
-          <Route path="/favourite">
-            <Favourite />
-          </Route>
+          <Switch>
+            <Route path="/" exact>
+              <ArticleList />
+            </Route>
+            <Route path="/blog/article/:id">
+              <BlogFullArticle />
+            </Route>
+            <Route path="/blog/favourite">
+              <Favourite />
+            </Route>
+            <Route>
+              <ErrorPage />
+            </Route>
+          </Switch>
         </BlogTemplate>
-        <Route path="/404">
-          <ErrorPage />
-        </Route>
-        <Redirect from="*" to="/404" />
       </Switch>
     </Router>
   );

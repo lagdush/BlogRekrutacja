@@ -8,7 +8,7 @@ import { render, screen } from '@testing-library/react';
 
 import App from './components/App';
 
-const text = 'Hello World';
+const text = 'Best Blog';
 describe('Label', () => {
   it('renders correctly', () => {
     render(<App />);

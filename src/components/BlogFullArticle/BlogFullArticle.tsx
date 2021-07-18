@@ -59,6 +59,9 @@ export const BlogFullArticle: React.FC = () => {
   if (error) {
     return <ErrorPage error="Somethig went wrong." />;
   }
+  if (fetchedArticles.length < Number(id)) {
+    return <ErrorPage />;
+  }
   return (
     <article className={style.article}>
       <h1 className={style.article__header}>{blogArticle.title}</h1>

@@ -5,6 +5,7 @@ import style from './errorPage.module.css';
 
 type ErrorPageProps = {
   error?: string;
+  location?: AnimationPlaybackEventInit;
 };
 const defaultErrorText =
   'The page you are looking for might have been removed, had its name changed or does not exists.';

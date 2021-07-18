@@ -9,9 +9,11 @@ export const loadState: (key?: string) => undefined | string = (key = 'posts')=>
       return undefined;
    }
 };
+type SaveToLS = (state: unknown, key?: string | undefined, ) => void;
 
-export const saveToLocalStorage: (key: string | undefined, state: unknown) => void = (key = 'posts' ,state:unknown) => {
+export const saveToLocalStorage:SaveToLS = (state, key = 'posts')=> {
   try {
+     console.log(state);
     localStorage.setItem(key, JSON.stringify(state));
   } catch (e) {
     console.error(e);

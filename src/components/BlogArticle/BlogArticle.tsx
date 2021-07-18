@@ -18,7 +18,7 @@ export const BlogArticle: React.FC<BlogArticleProps> = ({
     <article className={style.article}>
       <h3 className={style.article__header}>{title.toUpperCase()}</h3>
       <p className={style.article__text}>{body.slice(0, 75) + '...'}</p>
-      <BlogLink to={`/blog/${id}`}>
+      <BlogLink to={`/blog/article/${id}`}>
         <Button styleClassName="btn--secondary">Read more</Button>
       </BlogLink>
     </article>

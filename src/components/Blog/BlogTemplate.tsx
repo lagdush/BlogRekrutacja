@@ -1,10 +1,10 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import { Footer } from '../Footer/Footer';
 import { BlogLink } from '../Link/Link';
 import style from './blogTemplate.module.css';
 
 type BlogTemplateProps = {
-  children: ReactElement[];
+  children: ReactElement[] | ReactNode;
 };
 
 export const BlogTemplate: React.FC<BlogTemplateProps> = ({ children }) => {
@@ -14,7 +14,7 @@ export const BlogTemplate: React.FC<BlogTemplateProps> = ({ children }) => {
         <BlogLink to="/">
           <h1 className={style.header__logo}>Best Blog</h1>
         </BlogLink>
-        <BlogLink to="/favourite">Go to favourite</BlogLink>
+        <BlogLink to="/blog/favourite">Go to favourite</BlogLink>
       </header>
       {children}
       <Footer />
