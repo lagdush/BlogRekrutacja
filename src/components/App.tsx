@@ -6,7 +6,6 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import { WelcomePage } from './WelcomePage/WelcomePage';
 import { BlogFullArticle } from './BlogFullArticle/BlogFullArticle';
 import { ErrorPage } from './404Page/ErrorPage';
 import { ArticleList } from './ArticleList/ArticleList';
@@ -17,11 +16,8 @@ const App: React.FC = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact>
-          <WelcomePage />
-        </Route>
         <BlogTemplate>
-          <Route path="/blog" exact>
+          <Route path="/" exact>
             <ArticleList />
           </Route>
           <Route path="/blog/:id">

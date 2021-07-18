@@ -14,7 +14,9 @@ const favouriteSlice = createSlice({
       data.favouriteArticles.push(action.payload);
     },
     removeArticleFromFavourite: (data, action) => {
-      const index = data.favouriteArticles.indexOf(action.payload);
+      const index = data.favouriteArticles.findIndex(
+        (el) => el.id === action.payload
+      );
       data.favouriteArticles.splice(index, 1);
     },
     addCommentToFavourite: (data, action) => {
@@ -24,7 +26,9 @@ const favouriteSlice = createSlice({
       data.favouriteComments.push(action.payload);
     },
     removeCommentFromFavourite: (data, action) => {
-      const index = data.favouriteComments.indexOf(action.payload);
+      const index = data.favouriteComments.findIndex(
+        (el) => el.id === action.payload
+      );
       data.favouriteComments.splice(index, 1);
     },
   },

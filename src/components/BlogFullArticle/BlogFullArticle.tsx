@@ -64,7 +64,7 @@ export const BlogFullArticle: React.FC = () => {
       <h1 className={style.article__header}>{blogArticle.title}</h1>
       <p className={style.article__text}>{blogArticle.body}</p>
       <div className={style.article__buttons}>
-        <BlogLink to="/blog">
+        <BlogLink to="/">
           <Button>Return to all articles</Button>
         </BlogLink>
         {isFavourite ? (

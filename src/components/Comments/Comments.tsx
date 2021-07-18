@@ -29,7 +29,10 @@ export const Comments: React.FC<Comment> = ({ body, email, id }) => {
     return el.id === id;
   });
   const removeCommentFromFav = () => {
-    dispatch({ type: removeCommentFromFavourite.type, payload: 'daj' });
+    dispatch({
+      type: removeCommentFromFavourite.type,
+      payload: id,
+    });
   };
   return (
     <div className={style.comments}>
