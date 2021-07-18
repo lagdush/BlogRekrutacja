@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { client } from '../helpers/client';
 
