@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getCommentsFromApi } from '../../store/commentsActionsToApi';
+import { commentsFetch } from '../../store/actionsToApi';
 import {
   addArticleToFavourite,
   removeArticleFromFavourite,
@@ -31,7 +31,7 @@ export const BlogFullArticle: React.FC = () => {
   );
 
   useEffect(() => {
-    dispatch(getCommentsFromApi(`posts/${id}/comments`));
+    dispatch(commentsFetch(`posts/${id}/comments`));
   }, [dispatch, id]);
 
   const [blogArticle] = fetchedArticles.filter(

@@ -1,11 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { FavouriteInitialState } from '../types/types';
+
+const initialState = {
+    favouriteArticles: [],
+    favouriteComments: []
+  } as FavouriteInitialState;
 
 const favouriteSlice = createSlice({
   name: 'favourite',
-  initialState: {
-    favouriteArticles: [],
-    favouriteComments: [],
-  },
+  initialState,
   reducers: {
     addArticleToFavourite: (data, action) => {
       if (data.favouriteArticles.some((el) => el.id === action.payload.id)) {

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getArticlesFromApi } from '../../store/articlesActionsToApi';
+import { fetched } from '../../store/actionsToApi';
 import { ReducerType } from '../../types/types';
 import { ErrorPage } from '../404Page/ErrorPage';
 import { BlogArticle } from '../BlogArticle/BlogArticle';
@@ -11,9 +11,10 @@ export const ArticleList: React.FC = () => {
   const { fetchedArticles, loading, error } = useSelector(
     (state: ReducerType) => state.articles
   );
+
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getArticlesFromApi());
+    dispatch(fetched());
   }, [dispatch]);
 
   if (!fetchedArticles) {

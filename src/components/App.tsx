@@ -3,7 +3,6 @@ import {
   Switch,
   Route,
   BrowserRouter as Router,
-  Redirect,
 } from 'react-router-dom';
 
 import { BlogFullArticle } from './BlogFullArticle/BlogFullArticle';

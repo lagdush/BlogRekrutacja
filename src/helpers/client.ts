@@ -1,4 +1,4 @@
-class Client {
+class httpCall {
   async get(route:string) {
     try{
           const rawData = await fetch(process.env.REACT_APP_API_KEY + route);
@@ -11,4 +11,4 @@ class Client {
   }
 }
 
-export const client = new Client();
+export const client = new httpCall();

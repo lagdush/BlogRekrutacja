@@ -1,3 +1,4 @@
+
 export type ParamsType = {
   id?: string | undefined;
 };
@@ -18,19 +19,26 @@ export type Comments = {
   postId: number;
 };
 
-export type ReducerType = {
-  comments: {
-    fetchedComments: Comments[];
-    loading: false;
-    error: string;
-  };
-  articles: {
-    fetchedArticles: FetchedPosts[];
-    loading: false;
-    error: string;
-  };
-  favourite: {
+export type FavouriteInitialState ={
     favouriteArticles: FetchedPosts[];
-    favouriteComments: Comments[];
+    favouriteComments:  Comments[];
   }
+
+  export type CommentsInitialState = {
+    fetchedComments: Comments[];
+    loading: boolean;
+    error: string;
+  }
+
+   export type ArticlesInitialState = {
+    fetchedArticles: FetchedPosts[];
+    loading: boolean;
+    error: string;
+  }
+
+
+export type ReducerType = {
+  comments: CommentsInitialState;
+  articles: ArticlesInitialState;
+  favourite: FavouriteInitialState
 };
