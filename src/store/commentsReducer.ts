@@ -23,8 +23,12 @@ const commentsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(commentsFetch.pending, (state) => {
+      state.loading = true;
+    });
     builder.addCase(commentsFetch.fulfilled, (state, action) => {
       state.fetchedComments = action.payload;
+      state.loading = false;
     });
   },
 });

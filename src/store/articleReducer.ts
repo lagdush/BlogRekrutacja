@@ -23,8 +23,15 @@ const articleSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(fetched.pending, (state) => {
+      state.loading = true;
+    });
     builder.addCase(fetched.fulfilled, (state, action) => {
       state.fetchedArticles = action.payload;
+      state.loading = false;
+    });
+    builder.addCase(fetched.rejected, (state) => {
+      state.error='Something went wrong';
     });
   },
 });

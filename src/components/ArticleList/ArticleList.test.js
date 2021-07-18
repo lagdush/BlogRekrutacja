@@ -4,7 +4,6 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { render, screen, waitFor } from '../../helpers/utils/storeWrapper';
 import { ArticleList } from './ArticleList';
-import { useSelector, useDispatch } from 'react-redux';
 
 const fetchedPostsArray = [
   {
@@ -22,6 +21,31 @@ const fetchedPostsArray = [
   },
 ];
 
+const initialState = {
+  comments: [
+    {
+      postId: 1,
+      id: 2,
+      name: 'quo vero reiciendis velit similique earum',
+      email: 'Jayne_Kuhic@sydney.com',
+      body: 'est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et',
+    },
+  ],
+  articles: fetchedPostsArray,
+  favourite: {
+    favouriteArticles: fetchedPostsArray,
+    favouriteComments: [
+      {
+        postId: 1,
+        id: 2,
+        name: 'quo vero reiciendis velit similique earum',
+        email: 'Jayne_Kuhic@sydney.com',
+        body: 'est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et',
+      },
+    ],
+  },
+};
+
 const server = setupServer(
   rest.get(
     'https://jsonplaceholder.typicode.com/posts',
@@ -35,11 +59,8 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-describe('App component tests', () => {
-  it('should renders correctly', async () => {
-    render(<ArticleList />);
-    const { fetchedArticles } = useSelector((state) => state.articles);
-    console.log(fetchedArticles[1]);
-    expect(screen.getByText(data)).toBeInTheDocument();
-  });
+test('should renders correctly', async () => {
+  render(<ArticleList />, initialState);
+  expect(await screen.findByText('Read more')).toBeInTheDocument();
+  //   expect(screen.getByText('Read more')).toBeInTheDocument();
 });
