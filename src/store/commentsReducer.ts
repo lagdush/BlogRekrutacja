@@ -12,15 +12,6 @@ const commentsSlice = createSlice({
   name: 'comments',
   initialState,
   reducers: {
-    showLoader: (data) => {
-      data.loading = true;
-    },
-    hideLoader: (data) => {
-      data.loading = false;
-    },
-    catchErrors: (data, action) => {
-      data.error = action.payload;
-    },
   },
   extraReducers: (builder) => {
     builder.addCase(commentsFetch.pending, (state) => {
@@ -33,6 +24,4 @@ const commentsSlice = createSlice({
   },
 });
 
-export const { showLoader, hideLoader, catchErrors } =
-  commentsSlice.actions;
 export default commentsSlice.reducer;

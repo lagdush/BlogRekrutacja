@@ -21,46 +21,31 @@ const fetchedPostsArray = [
   },
 ];
 
-const initialState = {
-  comments: [
-    {
-      postId: 1,
-      id: 2,
-      name: 'quo vero reiciendis velit similique earum',
-      email: 'Jayne_Kuhic@sydney.com',
-      body: 'est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et',
-    },
-  ],
-  articles: fetchedPostsArray,
-  favourite: {
-    favouriteArticles: fetchedPostsArray,
-    favouriteComments: [
-      {
-        postId: 1,
-        id: 2,
-        name: 'quo vero reiciendis velit similique earum',
-        email: 'Jayne_Kuhic@sydney.com',
-        body: 'est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et',
-      },
-    ],
-  },
-};
-
 const server = setupServer(
   rest.get(
     'https://jsonplaceholder.typicode.com/posts',
     async (req, res, ctx) => {
-      return res(ctx.json(fetchedPostsArray));
+      return res(ctx.json(fetchedPostsArray), ctx.delay(150));
     }
   )
 );
+
+beforeAll(() => localStorage.clear('posts'));
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-test('should renders correctly', async () => {
-  render(<ArticleList />, initialState);
-  expect(await screen.findByText('Read more')).toBeInTheDocument();
-  //   expect(screen.getByText('Read more')).toBeInTheDocument();
+test('ArticleList should renders correctly', async () => {
+  render(<ArticleList />);
+  await waitFor(() =>
+    screen.getByText(
+      /sunt aut facere repellat provident occaecati excepturi optio reprehenderit/i
+    )
+  );
+  expect(
+    await screen.findByText(
+      /sunt aut facere repellat provident occaecati excepturi optio reprehenderit/i
+    )
+  ).toBeInTheDocument();
 });

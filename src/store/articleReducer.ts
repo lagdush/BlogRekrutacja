@@ -12,15 +12,6 @@ const articleSlice = createSlice({
   name: 'articles',
   initialState,
   reducers: {
-    showLoader: (data) => {
-      data.loading = true;
-    },
-    hideLoader: (data) => {
-      data.loading = false;
-    },
-    catchErrors: (data, action) => {
-      data.error = action.payload;
-    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetched.pending, (state) => {
@@ -36,6 +27,4 @@ const articleSlice = createSlice({
   },
 });
 
-export const { showLoader, hideLoader, catchErrors } =
-  articleSlice.actions;
 export default articleSlice.reducer;
