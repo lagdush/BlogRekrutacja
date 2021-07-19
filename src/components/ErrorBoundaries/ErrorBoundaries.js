@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import { ErrorPage } from '../404Page/ErrorPage';
 
@@ -7,10 +8,9 @@ export class ErrorBoundary extends React.Component {
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
-
 
   render() {
     if (this.state.hasError) {
