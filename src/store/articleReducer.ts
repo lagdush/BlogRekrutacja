@@ -22,6 +22,7 @@ const articleSlice = createSlice({
       state.loading = false;
     });
     builder.addCase(fetched.rejected, (state) => {
+      console.log('test');
       state.error='Something went wrong';
     });
   },

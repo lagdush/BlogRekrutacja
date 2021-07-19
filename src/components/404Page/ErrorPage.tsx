@@ -23,7 +23,7 @@ export const ErrorPage: React.FC<ErrorPageProps> = ({
       <p className={style.errorPage__errorName}>404 - page not found</p>
       <p className={style.errorPage__errorMessage}>{error}</p>
       <BlogLink to="/">
-        <Button>Go to Homepage</Button>
+        <Button onClick={() => localStorage.clear()}>Go to Homepage</Button>
       </BlogLink>
     </div>
   );
